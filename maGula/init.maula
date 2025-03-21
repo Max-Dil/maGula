@@ -1,0 +1,29 @@
+graphics = require("/maGula/core/graphics")
+resources = require("/maGula/core/resources")
+audio = require("/maGula/core/audio")
+
+core = {}
+
+core.run = function(updateFps, drawFps)
+    updateFps = updateFps or 60
+    local lastTime = os.time()
+    setInterval(function()
+        if core.update then
+            local currentTime = os.time()
+            local delta = currentTime - lastTime
+            lastTime = currentTime
+            core.update(delta)
+        end
+    end, 1000/updateFps)
+
+    setInterval(function()
+        if core.draw then
+            core.draw()
+        end
+    end, 1000/drawFps)
+end
+
+exports.graphics = graphics
+exports.resources = resources
+exports.core = core
+exports.audio = audio.audio

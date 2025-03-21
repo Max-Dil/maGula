@@ -1,0 +1,11 @@
+audio = {}
+audioContext = _G.audioContext
+
+audio.playSound = function(buffer)
+    local source = audioContext.createBufferSource()
+    source.buffer = buffer
+    source.connect(audioContext.destination)
+    source.start(0)
+end
+
+exports.audio = audio

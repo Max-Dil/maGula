@@ -1,0 +1,74 @@
+graphics = {}
+
+graphics.clear = function()
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+end
+
+graphics.color = function(color)
+    ctx.fillStyle = color or "black"
+end
+
+graphics.rect = function(x, y, width, height)
+    ctx.fillRect(x or 0, y or 0, width or 100, height or 100)
+end
+
+graphics.circle = function(x, y, radius, fill)
+    ctx.beginPath()
+    ctx.arc(x or 0, y or 0, radius or 50, 0, 2 * math.pi)
+    if fill then
+        ctx.fill()
+    else
+        ctx.stroke()
+    end
+end
+
+graphics.line = function(x1, y1, x2, y2)
+    ctx.beginPath()
+    ctx.moveTo(x1 or 0, y1 or 0)
+    ctx.lineTo(x2 or 100, y2 or 100)
+    ctx.stroke()
+end
+
+graphics.lineWidth = function(width)
+    ctx.lineWidth = width or 5
+end
+
+graphics.strokeColor = function(color)
+    ctx.strokeStyle = color or "red"
+end
+
+graphics.font = function(fontString)
+    ctx.font = fontString
+end
+
+graphics.text = function(text, x, y)
+    ctx.fillText(text or "no text", x or 0, y or 0)
+end
+
+graphics.drawImage = function(image, x, y, width, height)
+    ctx.drawImage(image, x or 0, y or 0, width or 100, height or 100)
+end
+
+graphics.rotate = function(angle)
+    ctx.rotate(angle)
+end
+
+graphics.translate = function(x, y)
+    ctx.translate(x, y)
+end
+
+graphics.save = function()
+    ctx.save()
+end
+
+graphics.restore = function()
+    ctx.restore()
+end
+
+function init(canv)
+    ctx = canv.getContext("2d")
+    canvas = canv
+    return graphics
+end
+
+exports.init = init
