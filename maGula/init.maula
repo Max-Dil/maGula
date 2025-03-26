@@ -1,6 +1,7 @@
+
 graphics = require("/maGula/core/graphics")
 resources = require("/maGula/core/resources")
-audio = require("/maGula/core/audio")
+audio = resources.audio
 
 core = {}
 
@@ -26,4 +27,4 @@ end
 exports.graphics = graphics
 exports.resources = resources
 exports.core = core
-exports.audio = audio.audio
+exports.audio = audio

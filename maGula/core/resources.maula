@@ -1,7 +1,11 @@
-loadImage = require("/maGula/core/image.js")
+image = require("/maGula/core/image.js")
 audio = require("/maGula/core/audio.js")
 
-_G.audioContext = audio[1]
+_G.audioContext = audio.audioContext
 
-exports.loadImage = loadImage
-exports.loadAudio = audio[0]
+exports.loadImage = image.loadImage
+exports.loadAudio = function(path)
+    return audio.loadAudio(path)
+end
+
+exports.audio = audio

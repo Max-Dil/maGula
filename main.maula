@@ -1,9 +1,12 @@
 canvas = dom.byId("myCanvas")
+ctx = canvas.getContext("2d")
 
-game = require("/maGula/init")
-core = game.core;
+game = require("maGula/init")
+core = game.core
 graphics = game.graphics.init(canvas)
 core.run(60, 30) -- фпс игры, фпс рисовки
+
+image = game.resources.loadImage("123.png")
 
 core.update = function(dt)
 
@@ -19,9 +22,7 @@ core.draw = function()
     graphics.drawImage(image, 200, 100, 400)
 end
 
-image = game.resources.loadImage("123.png")
-
-buffer = game.resources.loadAudio("тетрадь.mp3")
-canvas.addEventListener("click", function()
-    game.audio.playSound(buffer)
-end)
+//buffer = game.resources.loadAudio("тетрадь.mp3")
+//canvas.addEventListener("click", function()
+//    game.audio.playSound(buffer)
+//end)

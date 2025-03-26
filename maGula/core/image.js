@@ -13,4 +13,4 @@ const loadImage = function(path) {
     });
 };
 
-export default loadImage;
+exports.loadImage = loadImage;

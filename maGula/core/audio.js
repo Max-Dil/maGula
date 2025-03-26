@@ -12,4 +12,13 @@ async function loadAudio(url) {
     }
 }
 
-export default [loadAudio, audioContext];
+function playSound(buffer) {
+    let source = audioContext.createBufferSource()
+    source.buffer = buffer
+    source.connect(audioContext.destination)
+    source.start(0)
+}
+
+exports.loadAudio = loadAudio;
+exports.audioContext = audioContext;
+exports.playSound = playSound;
